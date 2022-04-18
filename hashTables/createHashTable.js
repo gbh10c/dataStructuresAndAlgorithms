@@ -29,13 +29,34 @@ class HashTable {
           return currentBucket[i][1];
         }
       }
-    }
+    }//O(1)
     return undefined;
   }
-} //O(1)
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if(this.data[i]) {
+        keysArray.push(this.data[i][0][0])
+      }
+    }
+    return keysArray;
+  }
+  
+  values() {
+    const valuesArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if(this.data[i]) {
+        valuesArray.push(this.data[i][0][1])
+      }
+    }
+    return valuesArray;
+  }
+} 
 
 const myHashTable = new HashTable(50);
 myHashTable.set('grapes', 10000);
-myHashTable.set('apples', 9)
-// myHashTable.get('grapes')
-myHashTable.get('apples')
+myHashTable.set('apples', 9);
+myHashTable.set('oranges', 2);
+myHashTable.keys();
+myHashTable.values();
